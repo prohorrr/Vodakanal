@@ -1,0 +1,109 @@
+﻿<Page x:Class="CompuMarket_App.ProductPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CompuMarket_App"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:hc="https://handyorg.github.io/handycontrol"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1280"
+      Title="Страница товаров" IsVisibleChanged="Page_IsVisibleChanged">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition x:Name="RegularRowSize" Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="Black" BorderThickness="1" Background="White" Height="100" />
+        <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0" Height="100" Width="1250">
+            <StackPanel Orientation="Horizontal" Height="100" Width="1200">
+                <ComboBox Height="50" Margin="100,0,0,0" Padding="5" FontSize="14" x:Name="ComboFilteres"
+                           VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+                           SelectionChanged="ComboFilteres_SelectionChanged"  Width="300" >
+                    <ComboBoxItem >
+                        <TextBlock Text="-----------" />
+                    </ComboBoxItem>
+                    <ComboBoxItem >
+                        <TextBlock Text="По Возрастанию цены" />
+                    </ComboBoxItem>
+                    <ComboBoxItem >
+                        <TextBlock Text="По Убыванию цены" />
+                    </ComboBoxItem>
+                    <ComboBoxItem >
+                        <TextBlock Text="По Алфавиту" />
+                    </ComboBoxItem>
+                </ComboBox>
+                <hc:SearchBar TextChanged="txtSearches_TextChanged" x:Name="txtSearches"  HorizontalAlignment="Right" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="PlsEnterContent" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="TitleDemoStr3" hc:InfoElement.Necessary="True" Width="500" Height="50" Margin="200,10,0,10"/>
+            </StackPanel>
+        </WrapPanel>
+
+        <Border Background="White" Grid.Row="1" Margin="830,0,0,0">
+            <Grid>
+                <Button Content="Запросить мастера на дом" x:Name="btnMaterGo" Click="btnMaterGo_Click" Background="#FFAB3FCD" Foreground="White" FontWeight="SemiBold" FontSize="20" Height="44" HorizontalAlignment="Left" Margin="160,0,0,0"></Button>
+                <Image Source="/free-icon-worker-560316.png" Height="100" Width="100" HorizontalAlignment="Left" Margin="55,264,0,0" VerticalAlignment="Top"></Image>
+            </Grid>
+        </Border>
+
+        <ListView Background="White" Grid.Row="1" Name="LViewProduct" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  HorizontalContentAlignment="Center" Margin="0,0,450,0" >
+            <ListView.ItemsPanel >
+                <ItemsPanelTemplate >
+                    <WrapPanel Orientation="Vertical" HorizontalAlignment="Center" />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel >
+            <ListView.ItemTemplate  >
+                <DataTemplate >
+                    <Grid  Background="White" HorizontalAlignment="Center" Margin="0"
+                           Height="460" x:Name="Grid123" MouseDown="Grid123_MouseDown">
+                        <Border BorderBrush="#007cc2" BorderThickness="3"  >
+                            <Border.Effect >
+                                <DropShadowEffect BlurRadius="15" Color="LightGray" ShadowDepth="0" />
+                            </Border.Effect>
+                            <StackPanel Background="White">
+                                <Grid Margin="0" Width="335" Background="White" HorizontalAlignment="Center">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="210"/>
+                                        <RowDefinition Height="100"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+
+                                    </Grid.RowDefinitions>
+                                    <DatePicker SelectedDate="{Binding DatePay}"></DatePicker>
+                                    <TextBlock Height="170"  Grid.Row="0" HorizontalAlignment="Center"
+                                           Margin="20"  Text="{Binding Adress}"/>
+                                    <TextBlock x:Name="TextS"  Text="{Binding FIO}" 
+                                               TextAlignment="Center" Width="307" TextWrapping="Wrap"
+                                               HorizontalAlignment="Center" FontSize="24" Grid.Row="1"/>
+                                    <TextBlock TextWrapping="Wrap" Text="{Binding Price}"  Grid.Row="2"
+                                               Margin="5 5 5 15" HorizontalAlignment="Center" FontSize="24">
+                                        <Run Text=" руб" />
+                                    </TextBlock>
+                                    <TextBlock TextWrapping="Wrap" Foreground="Gray"
+                                               Text="{Binding isActualP}"  Grid.Row="4" Margin="15"
+                                               HorizontalAlignment="Right" FontSize="18"/>
+                                    <Button Background="White" Click="AddProdctR_Click"
+                                            Foreground="#007cc2" BorderBrush="#007cc2"
+                                            Content=" Оплатить " HorizontalAlignment="Center" Grid.Row="3"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Grid Background="White"  Grid.Row="2" VerticalAlignment="Bottom" Height="50">
+            <!--<Button Content="Добавить товар" HorizontalAlignment="Left" Margin="10 0" 
+                    BorderBrush="#007cc2" Foreground="#007cc2" 
+                    Style="{StaticResource MaterialDesignOutlinedButton}" Name="BtnAdd"
+                    Click="BtnAdd_Click"
+                    />
+            <Button Content="Удалить товар" HorizontalAlignment="Right" Margin="10 0"
+                    BorderBrush="Red" Foreground="Red" 
+                    Style="{StaticResource MaterialDesignOutlinedButton}" Name="BtnDelete"
+                    Click="BtnDelete_Click"/>-->
+        </Grid>
+    </Grid>
+</Page>
+

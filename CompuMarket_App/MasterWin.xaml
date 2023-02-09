@@ -1,0 +1,22 @@
+﻿<Window x:Class="CompuMarket_App.MasterWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CompuMarket_App"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="MasterWin" Height="450" Width="800">
+    <Grid>
+        <TextBox FontSize="18" x:Name="loginBox" Margin="14,131,378,249" BorderThickness="0,0,0,1"  
+                         materialDesign:HintAssist.Hint="Введите причину" 
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+        <TextBox FontSize="18" Margin="14,214,378,166" BorderThickness="0,0,0,1"  
+                         materialDesign:HintAssist.Hint="Введите номер телефона" 
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+        <TextBox FontSize="18" Margin="13,292,379,88" BorderThickness="0,0,0,1"  
+                         materialDesign:HintAssist.Hint="Назначьте Дату" 
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+        <Button Content="Готово" Foreground="White" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="152,379,0,0" VerticalAlignment="Top" BorderBrush="LightSlateGray" Width="119" Background="#FF9F2CD8"></Button>
+    </Grid>
+</Window>

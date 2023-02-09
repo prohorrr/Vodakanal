@@ -1,0 +1,76 @@
+﻿<Page x:Class="CompuMarket_App.AdminPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CompuMarket_App"
+      mc:Ignorable="d" 
+       d:DesignHeight="720" d:DesignWidth="1280"
+      Title="AdminPage">
+
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Border BorderBrush="#007cc2" BorderThickness="3"  Background="White"/>
+            <TextBlock Margin="10"  Text="АДМИНИСТРАТОР" FontWeight="SemiBold"
+                       Foreground="Black" FontSize="30"
+                       HorizontalAlignment="Center"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Background="White">
+            <Border BorderBrush="Black" BorderThickness="0 0 0 3" >
+                <Grid>
+                    <TextBlock Text="Rogachyov@gmail.com" FontSize="20" Width="300" Height="30" FontWeight="DemiBold" HorizontalAlignment="Left" Margin="-5,28,0,0" VerticalAlignment="Top"></TextBlock>
+                    <TextBlock Text="Рогачёв Прохор Алексеевич" FontSize="20" Width="300" Height="30" FontWeight="DemiBold" Margin="2,1,978,0" VerticalAlignment="Top" ></TextBlock>
+                </Grid>
+            </Border>
+            <Button Foreground="Black" Background="White" BorderBrush="Black"
+                Content="ВСЕ ПОЛЬЗОВАТЕЛИ" HorizontalAlignment="Right" 
+                Margin="5"    Name="CheckUser" Click="CheckUser_Click" />
+        </Grid>
+
+        <ListView  Name="LViewOrder" Grid.Row="3">
+            <ListView.ItemTemplate>
+                <DataTemplate >
+                    <Grid  Background="White"  Height="300">
+                        <Border BorderBrush="#007cc2" BorderThickness="3"  >
+                            <Border.Effect >
+                                <DropShadowEffect BlurRadius="15" Color="LightGray" ShadowDepth="0" />
+                            </Border.Effect>
+                        </Border>
+                        <Grid Margin="30"  Background="White" >
+                            <StackPanel Background="White">
+                                <Grid  Background="White" Height="250" Width="1170">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="1"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="250" />
+                                        <ColumnDefinition  Width="250"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock x:Name="TextOrder"  Text="{Binding Adress}" Grid.Column="2"   TextAlignment="Left"
+                                   TextWrapping="Wrap"  HorizontalAlignment="Left" FontSize="24" Grid.Row="0"/>
+                                    <TextBlock x:Name="TextProduct"  Text="Статус | Оплачено" FontSize="16" Foreground="Green" FontWeight="SemiBold" Grid.Column="2" Grid.Row="1" TextAlignment="Left" />
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
